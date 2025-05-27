@@ -1,0 +1,9 @@
+{% extends "page.html" %}
+
+{% block main_content %}
+    <main class="centered-header">
+        {{ post_macros::page_header(title="404") }}
+        <img src="/owl_not_found.jpg" alt="404 Not Found" class="not-found-image" style="margin-bottom: 1.5rem;">
+        <span>Page not found :(</span>
+    </main>
+{% endblock main_content %}
