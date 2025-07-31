@@ -1,6 +1,7 @@
 +++
 title = "Auto-Instrumenting Java Apps with Kubernetes Image Volumes"
 date = 2025-05-15
+draft = true
 
 [taxonomies]
 tags=["kubernetes", "java", "opentelemetry", "observability", "oci", "containers", "platform-engineering", "devops", "kind", "spring-boot"]
