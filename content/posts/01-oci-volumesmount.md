@@ -1,7 +1,6 @@
 +++
 title = "Auto-Instrumenting Java Apps with Kubernetes Image Volumes"
 date = 2025-05-15
-draft = true
 
 [taxonomies]
 tags=["kubernetes", "java", "opentelemetry", "observability", "oci", "containers", "platform-engineering", "devops", "kind", "spring-boot"]
@@ -11,32 +10,48 @@ repo_view = true
 repo_url = "https://github.com/dol/k8s-oci-volume-source-demo"
 +++
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Auto-Instrumenting Java Apps with Kubernetes Image Volumes
 
-The [Kubernetes v1.33 release](https://kubernetes.io/blog/2025/04/29/kubernetes-v1-33-image-volume-beta/) marks an important milestone with the **Image Volumes** feature graduating to beta status. This feature allows you to mount container images directly as read-only volumes in your Kubernetes pods, creating exciting new possibilities for software delivery patterns.
+The [Kubernetes v1.33 release](https://kubernetes.io/blog/2025/04/29/kubernetes-v1-33-image-volume-beta/)
+marks an important milestone with the **Image Volumes** feature graduating to beta status. This feature allows you
+to mount container images directly as read-only volumes in your Kubernetes pods, creating exciting new possibilities
+for software delivery patterns.
 
-In this blog post, I'll walk through a practical implementation of this feature using [Kind](https://kind.sigs.k8s.io/) (Kubernetes in Docker) to demonstrate how to auto-instrument a Java application with [OpenTelemetry](https://opentelemetry.io/) without modifying the application container itself.
+In this blog post, I'll walk through a practical implementation of this feature using
+[Kind](https://kind.sigs.k8s.io/) (Kubernetes in Docker) to demonstrate how to auto-instrument a Java application
+with [OpenTelemetry](https://opentelemetry.io/) without modifying the application container itself.
 
-> **📁 Complete Code Available**: All the code and configuration files for this tutorial are available in the [k8s-oci-volume-source-demo](https://github.com/dol/k8s-oci-volume-source-demo) GitHub repository. You can clone it and follow along or use it as a reference.
+> **📁 Complete Code Available**: All the code and configuration files for this tutorial are available in the
+> [k8s-oci-volume-source-demo](https://github.com/dol/k8s-oci-volume-source-demo) GitHub repository. You can clone it
+> and follow along or use it as a reference.
 
 ## What are Image Volumes?
 
-Image Volumes were introduced as an alpha feature in Kubernetes v1.31 as part of [KEP-4639](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/4639-oci-volume-source). With v1.33, they have graduated to beta, adding support for `subPath` and `subPathExpr` mounts, along with new metrics for tracking image volume usage.
+Image Volumes were introduced as an alpha feature in Kubernetes v1.31 as part of
+[KEP-4639](https://github.com/kubernetes-enhancements/tree/master/keps/sig-node/4639-oci-volume-source).
+With v1.33, they have graduated to beta, adding support for `subPath` and `subPathExpr` mounts, along with new
+metrics for tracking image volume usage.
 
-This feature allows you to reference container images as volumes in Kubernetes pods, giving you direct access to the container image's filesystem. The volumes are mounted read-only, maintaining security and immutability.
+This feature allows you to reference container images as volumes in Kubernetes pods, giving you direct access to the
+container image's filesystem. The volumes are mounted read-only, maintaining security and immutability.
 
-> **Note:** The feature is still disabled by default, as not all container runtimes fully support it yet. [Containerd v2.1.0](https://github.com/containerd/containerd/releases/tag/v2.1.0) supports this feature, which is what we'll be using in this tutorial.
+> **Note:** The feature is still disabled by default, as not all container runtimes fully support it yet.
+> [Containerd v2.1.0](https://github.com/containerd/containerd/releases/tag/v2.1.0) supports this feature, which is
+> what we'll be using in this tutorial.
 
 ## Why Image Volumes Matter
 
 This feature can revolutionize how we deliver and manage certain types of content in Kubernetes:
 
-1. **Separate content from application containers** - Keep your application containers lean while mounting heavy dependencies separately
+1. **Separate content from application containers** - Keep your application containers lean while mounting heavy
+   dependencies separately
 2. **Agent distribution** - Distribute monitoring agents without modifying application images
 3. **Simplified versioning** - Update content independently from application code
 4. **Reduced deployment complexity** - Avoid custom init containers and sidecars
 
-In our example, we'll use Image Volumes to mount an OpenTelemetry Java agent into a Spring Boot application without embedding it in the application container.
+In our example, we'll use Image Volumes to mount an OpenTelemetry Java agent into a Spring Boot application without
+embedding it in the application container.
 
 ## Prerequisites
 
@@ -59,17 +74,22 @@ cd k8s-oci-volume-source-demo
 
 The repository contains everything needed to run the complete demo, including:
 
-- **Setup scripts**: [`01-build-custom-kind-image.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/01-build-custom-kind-image.sh), [`02-kind-with-registry.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/02-kind-with-registry.sh)
-- **OCI artifact creation**: [`03-artifact-javaagent-upload.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/03-artifact-javaagent-upload.sh)
-- **Application deployments**: [`04-deploy-spring-hello-world.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04-deploy-spring-hello-world.sh), [`04a-deploy-aspire-dashboard.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04a-deploy-aspire-dashboard.sh)
-- **Kubernetes manifests**: [`spring-hello-world/`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/spring-hello-world), [`aspire-dashboard/`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/aspire-dashboard)
-- **Cleanup script**: [`05-cleanup.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/05-cleanup.sh)
+- **Setup scripts**: [`01-build-custom-kind-image.sh`][01-build-custom-kind-image.sh],
+  [`02-kind-with-registry.sh`][02-kind-with-registry.sh]
+- **OCI artifact creation**: [`03-artifact-javaagent-upload.sh`][03-artifact-javaagent-upload.sh]
+- **Application deployments**: [`04-deploy-spring-hello-world.sh`][04-deploy-spring-hello-world.sh],
+  [`04a-deploy-aspire-dashboard.sh`][04a-deploy-aspire-dashboard.sh]
+- **Kubernetes manifests**: [`spring-hello-world/`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/spring-hello-world),
+  [`aspire-dashboard/`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/aspire-dashboard)
+- **Cleanup script**: [`05-cleanup.sh`][05-cleanup.sh]
 
 ## Step 1: Building a Custom Kind Cluster with Image Volumes Support
 
-First, we need to build a custom Kind node image with a sufficiently recent version of containerd (v2.1.0) that supports the Image Volumes feature.
+First, we need to build a custom Kind node image with a sufficiently recent version of containerd (v2.1.0) that supports
+the Image Volumes feature.
 
-The complete script is available as [`01-build-custom-kind-image.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/01-build-custom-kind-image.sh) in the repository:
+The complete script is available as [`01-build-custom-kind-image.sh`][01-build-custom-kind-image.sh]
+in the repository:
 
 ```bash
 #!/usr/bin/env bash
@@ -128,7 +148,8 @@ This script performs the following operations:
 
 ## Step 2: Creating a Kind Cluster with a Local Registry
 
-Next, we'll create a Kind cluster with our custom image and set up a local registry for our OCI artifacts using the [`02-kind-with-registry.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/02-kind-with-registry.sh) script:
+Next, we'll create a Kind cluster with our custom image and set up a local registry for our OCI artifacts using the
+[`02-kind-with-registry.sh`][02-kind-with-registry.sh] script:
 
 ```bash
 #!/usr/bin/env bash
@@ -205,7 +226,9 @@ This script:
 
 ## Step 3: Creating an OCI Artifact for the OpenTelemetry Java Agent
 
-Now we'll package the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation) as an [OCI artifact](https://github.com/opencontainers/artifacts) and push it to our local registry using the [`03-artifact-javaagent-upload.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/03-artifact-javaagent-upload.sh) script:
+Now we'll package the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
+as an [OCI artifact](https://github.com/opencontainers/artifacts) and push it to our local registry using the
+[`03-artifact-javaagent-upload.sh`][03-artifact-javaagent-upload.sh] script:
 
 ```bash
 #!/usr/bin/env bash
@@ -303,7 +326,8 @@ This script:
 
 ## Step 4: Deploying a Java Application with Image Volume Mount
 
-Now we'll deploy a [Spring Boot](https://spring.io/projects/spring-boot) application that mounts the OpenTelemetry agent from the OCI image using the [`04-deploy-spring-hello-world.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04-deploy-spring-hello-world.sh) script:
+Now we'll deploy a [Spring Boot](https://spring.io/projects/spring-boot) application that mounts the OpenTelemetry agent
+from the OCI image using the [`04-deploy-spring-hello-world.sh`][04-deploy-spring-hello-world.sh] script:
 
 ```bash
 #!/usr/bin/env bash
@@ -341,7 +365,9 @@ echo "----------------------------------------"
 echo "Spring Hello World application is accessible at: http://${NODE_IP}:${SPRING_NODE_PORT}"
 ```
 
-The deployment YAML for this application includes the critical Image Volume configuration. You can find the complete Kubernetes manifests in the [`spring-hello-world`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/spring-hello-world) directory:
+The deployment YAML for this application includes the critical Image Volume configuration. You can find the complete
+Kubernetes manifests in the
+[`spring-hello-world`](https://github.com/dol/k8s-oci-volume-source-demo/tree/main/spring-hello-world) directory:
 
 ```yaml
 apiVersion: apps/v1
@@ -398,11 +424,14 @@ Note the key sections:
 
 - `volumes` section defines an image volume referencing our OpenTelemetry agent OCI image
 - `volumeMounts` mounts this image volume at `/mnt/javaagent` in the container
-- `JAVA_TOOL_OPTIONS` environment variable configures Java to use the agent from the mounted path - see the [JVM documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/envvars002.html) for more details
+- `JAVA_TOOL_OPTIONS` environment variable configures Java to use the agent from the mounted path - see the
+  [JVM documentation](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/envvars002.html) for more details
 
 ## Step 5: Deploying the Aspire Dashboard for Observability
 
-Finally, we'll deploy the [.NET Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard) to visualize the telemetry data collected by the OpenTelemetry agent using the [`04a-deploy-aspire-dashboard.sh`](https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04a-deploy-aspire-dashboard.sh) script:
+Finally, we'll deploy the [.NET Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard)
+to visualize the telemetry data collected by the OpenTelemetry agent using the
+[`04a-deploy-aspire-dashboard.sh`][04a-deploy-aspire-dashboard.sh] script:
 
 ```bash
 #!/usr/bin/env bash
@@ -452,7 +481,9 @@ This approach offers several significant advantages:
 
 ## Conclusion
 
-Kubernetes v1.33's Image Volumes beta feature provides a powerful new way to manage content delivery to containers. By leveraging this feature for auto-instrumentation, we've demonstrated a clean, efficient approach to adding observability to applications without modifying their container images.
+Kubernetes v1.33's Image Volumes beta feature provides a powerful new way to manage content delivery to containers. By
+leveraging this feature for auto-instrumentation, we've demonstrated a clean, efficient approach to adding observability
+to applications without modifying their container images.
 
 This pattern can be extended to other use cases such as:
 
@@ -461,11 +492,13 @@ This pattern can be extended to other use cases such as:
 - Distributing ML models to inference containers
 - Sharing static assets across multiple applications
 
-As container runtimes continue to improve their support for this feature, we can expect to see widespread adoption of these patterns in production Kubernetes environments.
+As container runtimes continue to improve their support for this feature, we can expect to see widespread adoption of
+these patterns in production Kubernetes environments.
 
 ## Further Reading
 
-- **[Complete Demo Repository](https://github.com/dol/k8s-oci-volume-source-demo)** — All the code and configuration files used in this tutorial
+- **[Complete Demo Repository](https://github.com/dol/k8s-oci-volume-source-demo)** — All the code and configuration
+  files used in this tutorial
 - [Kubernetes v1.33 Image Volumes Beta Announcement](https://kubernetes.io/blog/2025/04/29/kubernetes-v1-33-image-volume-beta/)
 - [Using OCI Volume Source in Kubernetes Pods](https://sestegra.medium.com/using-oci-volume-source-in-kubernetes-pods-06d62fb72086)
 - [OpenTelemetry Java Instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
@@ -473,3 +506,10 @@ As container runtimes continue to improve their support for this feature, we can
 - [OCI Image Specification](https://github.com/opencontainers/image-spec)
 - [Containerd Documentation](https://containerd.io/docs/)
 - [ORAS CLI Documentation](https://oras.land/docs/)
+
+[01-build-custom-kind-image.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/01-build-custom-kind-image.sh
+[02-kind-with-registry.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/02-kind-with-registry.sh
+[03-artifact-javaagent-upload.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/03-artifact-javaagent-upload.sh
+[04-deploy-spring-hello-world.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04-deploy-spring-hello-world.sh
+[04a-deploy-aspire-dashboard.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/04a-deploy-aspire-dashboard.sh
+[05-cleanup.sh]: https://github.com/dol/k8s-oci-volume-source-demo/blob/main/05-cleanup.sh

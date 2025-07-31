@@ -26,7 +26,7 @@ recent_max = 5
 recent_more_text = "more »"
 
 +++
-
+<!-- markdownlint-disable-next-line MD025 -->
 # Hello! 👋
 
 I'm Dominic — I build platforms and write about it. Want to know more [about me](/about/).

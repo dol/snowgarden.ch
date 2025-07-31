@@ -7,23 +7,29 @@ template = "prose.html"
 title = "About"
 reaction = false
 +++
-
-
+<!-- markdownlint-disable-next-line MD025 -->
 # Hey there! 👋 I'm Dominic
 
 ![Dominic Lüchinger](/dominic.jpg)
 
-**Technical Leader | Software Developer | Platform Engineer | Sour Candy Enthusiast 🍬**
+**Technical Leader | Software Developer | Platform Engineer |
+Sour Candy Enthusiast 🍬**
 
-I spend my days making complex systems simple and helping teams fall in love with their developer tools. Right now I'm deep in the weeds of making infrastructure feel less like infrastructure and more like magic.
+I spend my days making complex systems simple and helping teams fall in love with their developer tools.
+Right now I'm deep in the weeds of making infrastructure feel less like infrastructure and more like magic.
 
 ---
 
 ## What I'm About 🚀
 
-I'm the person teams call when their "simple" platform has become a hydra of microservices, and they need someone who speaks both engineer and executive. After nearly 20 years in this beautiful chaos we call software development, I've learned that the best platforms feel invisible — they just work, and they make everything else work better.
+I'm the person teams call when their "simple" platform has become a hydra of microservices,
+and they need someone who speaks both engineer and executive.
+After nearly 20 years in this beautiful chaos we call software development, I've learned that the best platforms
+feel invisible — they just work, and they make everything else work better.
 
-**My superpower?** I see patterns where others see problems. Whether it's **writing code** that untangles a deployment nightmare or **architecting systems** that scale with your team's ambition, I turn technical complexity into competitive advantage.
+**My superpower?** I see patterns where others see problems.
+Whether it's **writing code** that untangles a deployment nightmare or **architecting systems** that scale with your
+team's ambition, I turn technical complexity into competitive advantage.
 
 ---
 
@@ -52,13 +58,18 @@ I'm the person teams call when their "simple" platform has become a hydra of mic
 
 ## My Greatest Hits 🏆
 
-**🔐 Democratized Internet Security** — Led the first-ever Let's Encrypt integration at a hosting provider, making SSL certificates free for millions of websites. Sometimes the biggest impact comes from removing barriers.
+**🔐 Democratized Internet Security** — Led the first-ever Let's Encrypt integration at a hosting provider,
+making SSL certificates free for millions of websites.
+Sometimes the biggest impact comes from removing barriers.
 
-**💰 The 30% Cost Reduction Without Compromise** — Redesigned cloud infrastructure for applications serving millions of users, proving that optimization and reliability aren't mutually exclusive.
+**💰 The 30% Cost Reduction Without Compromise** — Redesigned cloud infrastructure for applications serving millions of users,
+proving that optimization and reliability aren't mutually exclusive.
 
-**🎭 The Platform Transformation** — Guided enterprises through monolith-to-microservices migrations while keeping the lights on and the teams sane.
+**🎭 The Platform Transformation** — Guided enterprises through monolith-to-microservices migrations while keeping the
+lights on and the teams sane.
 
-**👥 Building Teams That Build Better** — Mentored engineers into technical leaders, proving that investing in people is the highest-ROI platform improvement.
+**👥 Building Teams That Build Better** — Mentored engineers into technical leaders,
+proving that investing in people is the highest-ROI platform improvement.
 
 ---
 
@@ -77,23 +88,31 @@ I believe platforms should be built with the same rigor as customer-facing produ
 
 ### My Engineering Principles
 
-**⚖️ Impact Over Effort** — Not all improvements are created equal. Focus on high-leverage changes.
+**⚖️ Impact Over Effort** — Not all improvements are created equal.
+Focus on high-leverage changes.
 
 **🪄 Automate The Annoying** — If it takes more than 30 seconds and you do it more than once a week, automate it.
 
-**🌈 Extensible > Flexible** — Build for today's problems with tomorrow's expansion in mind. YAGNI, but with escape hatches.
+**🌈 Extensible > Flexible** — Build for today's problems with tomorrow's expansion in mind.
+YAGNI, but with escape hatches.
 
-**💖 The Boy Scout Rule** — Always leave the codebase better than you found it. Small improvements compound.
+**💖 The Boy Scout Rule** — Always leave the codebase better than you found it.
+Small improvements compound.
 
-**🧱 Tests Are Your Foundation** — Not documentation. Tests tell you what the system actually does, not what you hope it does.
+**🧱 Tests Are Your Foundation** — Not documentation.
+Tests tell you what the system actually does, not what you hope it does.
 
 **🧰 Technical Debt Is A Tool** — Like any tool, it's about using it thoughtfully and paying it back with interest.
 
-**📝 Documentation Is Decision Insurance** — Good docs aren't about what the code does — they're about why decisions were made. The traceability of changes and decisions saves future developers (including yourself) from reinventing the wheel or repeating mistakes.
+**📝 Documentation Is Decision Insurance** — Good docs aren't about what the code does — they're about why
+decisions were made.
+The traceability of changes and decisions saves future developers (including yourself) from reinventing the wheel or
+repeating mistakes.
 
 ## Tech Stack & Tools 🛠️
 
-I'm language-agnostic but opinionated about patterns. Here's what's in my current toolkit:
+I'm language-agnostic but opinionated about patterns.
+Here's what's in my current toolkit:
 
 ### **Core Languages**
 
@@ -152,11 +171,14 @@ I'm always up for discussing:
 
 ## What Others Say 💬
 
-_"Dominic has this rare ability to see the forest and the trees—he can architect a solution and then roll up his sleeves to implement it."_
+_"Dominic has this rare ability to see the forest and the trees—he can architect a solution and then roll up
+his sleeves to implement it."_
 
-_"He doesn't just build platforms, he builds the culture around them. His teams actually enjoy using the tools he creates."_
+_"He doesn't just build platforms, he builds the culture around them.
+His teams actually enjoy using the tools he creates."_
 
-_"Brought order to our chaos without sacrificing our ability to move fast. That's a special skill."_
+_"Brought order to our chaos without sacrificing our ability to move fast.
+That's a special skill."_
 
 ---
 
@@ -177,4 +199,5 @@ Drop me a line at [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch) — I'd 
 
 ---
 
-_P.S. — If you made it this far, you probably care about details as much as I do. We should definitely talk._ 😊
+_P.S. — If you made it this far, you probably care about details as much as I do.
+We should definitely talk._ 😊

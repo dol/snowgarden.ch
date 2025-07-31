@@ -1,11 +1,12 @@
 # snowgarden.ch
 
-This repository contains the source code and assets for [snowgarden.ch](https://snowgarden.ch) — Dominic Lüchinger's personal website and blog.
+This repository contains the source code and assets for [snowgarden.ch](https://snowgarden.ch) — Dominic Lüchinger's
+personal website and blog.
 
 ## Built With
 
 - **[Zola](https://www.getzola.org/)** — A fast static site generator built in Rust
-- **[Apollo Theme](https://github.com/not-matthias/apollo)** — A clean, modern theme for Zola
+- **[Serene Theme](https://github.com/isunjn/serene)** — A minimal blog theme for zola, well crafted
 
 ## Development
 
