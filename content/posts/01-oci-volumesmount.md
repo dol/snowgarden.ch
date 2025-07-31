@@ -144,7 +144,7 @@ if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true
     --network bridge \
     --name "${reg_name}" \
     registry:3
-  
+
   # Wait for the registry to be ready
   while ! curl -s "http://localhost:${reg_port}/v2/" >/dev/null; do
     echo "Waiting for registry to be ready..."

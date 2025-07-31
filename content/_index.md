@@ -1,6 +1,30 @@
 +++
 title= "Home"
-template = "homepage.html"
+template = "home.html"
+
+[extra]
+lang = 'en'
+
+# Show footer in home page
+footer = false
+
+# If you don't want to display id/bio/avatar, simply comment out that line
+name = "Dominic Lüchinger"
+id = "dol"
+
+links = [
+    { name = "GitHub", icon = "github", url = "https://github.com/dol" },
+    { name = "LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/in/dominicluechinger" },
+    { name = "Bluesky", icon = "bluesky", url = "https://bsky.app/profile/drdol.bsky.social" },
+    { name = "Email", icon = "email", url = "mailto:dominic@snowgarden.ch" },
+]
+
+date_format = "%b %-d, %Y"
+
+recent = true
+recent_max = 5
+recent_more_text = "more »"
+
 +++
 
 # Hello! 👋

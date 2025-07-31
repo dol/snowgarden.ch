@@ -1,7 +1,13 @@
 +++
 title= "Dominic Lüchinger"
-page = "about"
+description = "Demo collections page of zola-theme-serene"
+template = "prose.html"
+
+[extra]
+title = "About"
+reaction = false
 +++
+
 
 # Hey there! 👋 I'm Dominic
 
@@ -96,14 +102,14 @@ const myStack = {
   // What I build with daily
   backend: ["Java/Spring Boot", "Go", "Lua", "Rust"],
   frontend: ["TypeScript/Javascript", "React"],
-  
+
   // What I automate with
   scripting: ["Python", "Bash", "GitLab CI"],
   infrastructure: ["Helm", "Terraform", "ArgoCD", "YAML"],
-  
+
   // What I store things in
   databases: ["PostgreSQL", "MongoDB", "Redis"],
-  
+
   // What keeps me sane
   tools: ["Linux", "Terminal", "Container", "VS Code", "IntelliJ IDEA", "Git"]
 }
@@ -137,9 +143,9 @@ I'm always up for discussing:
 
 ### Find Me Here
 
-**📧 Email**: [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch) — Best for project discussions  
-**💼 LinkedIn**: [Connect with me](https://www.linkedin.com/in/dominicluechinger) — Professional updates  
-**🐙 GitHub**: [github.com/dol](https://github.com/dol) — Code and contributions  
+**📧 Email**: [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch) — Best for project discussions
+**💼 LinkedIn**: [Connect with me](https://www.linkedin.com/in/dominicluechinger) — Professional updates
+**🐙 GitHub**: [github.com/dol](https://github.com/dol) — Code and contributions
 **🦋 Bluesky**: [@drdol.bsky.social](https://bsky.app/profile/drdol.bsky.social) — Tech thoughts and random musings
 
 ---

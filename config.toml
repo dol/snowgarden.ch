@@ -7,13 +7,29 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
-theme = "apollo"
+theme = "serene"
 taxonomies = [{ name = "tags" }]
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "css"
+extra_syntaxes_and_themes = ["themes/serene/highlight_themes"]
+highlight_themes_css = [
+  { theme = "serene-light", filename = "hl-light.css" },
+  { theme = "serene-dark", filename = "hl-dark.css" },
+]
+render_emoji = false
+external_links_target_blank = false
+external_links_no_follow = true
+external_links_no_referrer = true
+smart_punctuation = false
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
 
 [extra]
 # Put all your custom variables here
@@ -21,6 +37,15 @@ theme = "auto"
 socials = [
   # Configure socials here
 ]
+
+sections = [
+  { name = "posts", path = "/posts", is_external = false },
+  { name = "projects", path = "/projects", is_external = false },
+  { name = "tags", path = "/tags", is_external = false },
+  { name = "about", path = "/about", is_external = false },
+  # { name = "github", path = "https://github.com/<your-username>", is_external = true },
+]
+
 menu = [
   { name = "/home", url = "/", weight = 1 },
   { name = "/posts", url = "/posts", weight = 2 },
@@ -29,9 +54,24 @@ menu = [
   { name = "/tags", url = "/tags", weight = 5 },
 ]
 
+blog_section_path = "/posts"
+
 # Social media links
 social_links = [
   { name = "GitHub", url = "https://github.com/dol" },
   { name = "Bluesky", url = "https://bsky.app/profile/drdol.bsky.social" },
   { name = "LinkedIn", url = "https://www.linkedin.com/in/dominicluechinger" },
 ]
+
+back_link_text = "Back" # Text of the back button
+force_theme = false # false | "light" | "dark"
+
+footer_copyright = "© 2025 Dominic"
+footer_credits = true # Whether to show "Built with zola and serene" in footer
+
+not_found_error_text = "404 Not Found"
+not_found_recover_text = "« back to home »"
+
+reaction = false # Whether to enable anonymous emoji reactions (Note: You need to set up a working api endpoint to enable this feature)
+reaction_align = "right" # "left" | "center" | "right"
+reaction_endpoint = "https://example.com/api/reaction"

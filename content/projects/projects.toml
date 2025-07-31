@@ -1,0 +1,6 @@
+[[collection]]
+type = "card"
+title = "CEL for LUA"
+link = "https://github.com/dol/cel-lua"
+content = "CEL (Common Expression Language) library for Lua with FFI bindings. A fast and efficient CEL expression evaluator for Lua environments, built with Rust and FFI bindings. Automatically detects and works with both OpenResty and standalone LuaJIT environments."
+tags = ["rust", "lua", "cel"]

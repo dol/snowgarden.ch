@@ -1,9 +1,16 @@
-{% extends "page.html" %}
+{% extends "_base.html" %}
 
-{% block main_content %}
-    <main class="centered-header">
-        {{ post_macros::page_header(title="404") }}
-        <img src="/owl_not_found.jpg" alt="404 Not Found" class="not-found-image" style="margin-bottom: 1.5rem;">
-        <span>Page not found :(</span>
-    </main>
-{% endblock main_content %}
+
+{% block page %}not-found{% endblock page%}
+{% block lang %}{{ config.default_language }}{% endblock lang %}
+{% block title %}404{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+  <img src="/owl_not_found.jpg" alt="404 Not Found" class="not-found-image" style="margin-bottom: 1.5rem;">
+  <p class="error">
+    {{ config.extra.not_found_error_text }}
+  </p>
+  <a class="instant" href="{{ get_url(path='/') }}">{{ config.extra.not_found_recover_text }}</a>
+</div>
+{% endblock %}
