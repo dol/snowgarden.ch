@@ -8,6 +8,6 @@ tags = ["rust", "lua", "cel"]
 [[collection]]
 type = "card"
 title = "I � Unicode"
-link = "projects/i-love-unicode"
+link = "i-love-unicode"
 content = ""
 tags = ["talk", "knowledge", "futher reading"]
