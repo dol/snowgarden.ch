@@ -9,48 +9,50 @@ tags = ["unicode", "emoji", "web", "presentation", "typography", "internationali
 
 [extra]
 author = "Dominic Lüchinger"
+repo_view = false
 +++
-_A curated collection of fascinating, funny, weird, and strange Unicode phenomena from my talk at the local web
-technology meetup._
+
+_A curated collection of fascinating, funny, weird, and strange Unicode phenomena from my talk at the Webnesday
+St. Gallen Meetup._
 
 Unicode is far more than just "international characters"—it's a deep rabbit hole of linguistic history, cultural
 nuance, and technical complexity that continues to surprise developers daily. This page serves as an extended resource
 for my presentation, featuring real-world Unicode gotchas, security implications, and delightfully bizarre examples.
 
-## More Essential Reading
+## Getting Started with Unicode
 
-**[Dark Corners of Unicode](https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/)** by eevee - A brilliant deep dive
-into the practical problems you'll encounter with Unicode in the real world:
+Before diving into the weird and wonderful world of Unicode oddities, let's start with some excellent
+introductions to Unicode basics:
 
-- **Terminal rendering nightmares**: Why emoji overlap text in VTE and cursor positioning breaks in Konsole
-- **JavaScript's broken string type**: How `"💣".length` returns 2 because JavaScript uses UTF-16 surrogate pairs
-- **The wcwidth() disaster**: Different implementations report different character widths, breaking text everywhere
-- **Sorting is impossible**: German "ß" vs "ss", Turkish dotless "ı", and why normalization isn't a silver bullet
-- **There's no such thing as emoji**: The arbitrary definition of what counts as emoji and why fonts matter
+### Essential Reading
 
-**[I Can Text You A Pile of Poo, But I Can't Write My Name](https://modelviewculture.com/pieces/i-can-text-you-a-pile-of-poo-but-i-cant-write-my-name)**
-by Aditya Mukerjee - A powerful critique of Unicode's cultural and representational problems:
+These articles provide a solid foundation for understanding Unicode:
 
-- **Second-class languages**: Bengali (7th most spoken language) missing basic characters for decades
-- **Han Unification controversy**: Forcing Chinese, Japanese, and Korean into shared character sets
-- **Colonial echoes**: How Unicode Consortium's composition reflects historical power imbalances
-- **Emoji prioritization**: 1,000 emoji characters while people can't write their own names correctly
+- **[The Absolute Minimum Every Software Developer Must Know About Unicode in 2023 (Still No
+  Excuses!)](https://tonsky.me/blog/unicode/)** by Nikita Prokopov
+  A modern, practical guide that covers what's changed since Joel Spolsky's famous 2003 article. Key insight: "In
+  2023, it's no longer a question: with a 98% probability, it's UTF-8. Finally! We can stick our heads in the sand
+  again!" Covers UTF-8, grapheme clusters, normalization, and why `"🤦🏼‍♂️".length` gives different answers in
+  different programming languages.
 
-## 💻 Developer Deep Dives
+- **[An Introduction to Unicode](https://www.aleksandrhovhannisyan.com/blog/introduction-to-unicode/)** by Aleksandr
+  Hovhannisyan
+  A comprehensive deep-dive into Unicode and UTF-8 encoding with mathematical explanations. Covers the history from
+  ASCII to Unicode, how UTF-8 works under the hood with bitwise operations, character boundaries, and
+  self-synchronization. Perfect for understanding the technical details of how UTF-8 encoding actually works.
 
-### Monospace Fonts and Unicode Ligatures
+- **[Unicode for Curious Developers](https://juliensobczak.com/inspect/2021/06/19/unicode-for-curious-developers/)**
+  by Julien Sobczak
+  An incredibly detailed guide covering the complete story of Unicode from ancient cave paintings to modern emojis.
+  Explores the Unicode Standard, character database, encoding forms (UTF-8, UTF-16, UTF-32), and implementation
+  details in various programming languages. Includes extensive code examples and practical guidance for developers.
 
-**[Shaping Ligatures in Monospace Fonts](https://joshleeb.com/posts/monospace-ligatures.html)** by Josh Leeb explores
-the technical challenges of implementing Unicode ligatures in code editors:
+- **[Unicode in Five Minutes](https://richardjharris.github.io/unicode-in-five-minutes/)** by Richard Harris
+  A concise but comprehensive overview covering normalization, casefolding, sorting, encodings, and practical
+  Unicode issues. Excellent coverage of "gotchas" like grapheme clusters, variation selectors, and internationalized
+  domain names. Great for developers who need practical Unicode knowledge quickly.
 
-- **The ligature spacer problem**: How `"#{"` becomes 4 glyphs instead of 3 when shaped
-- **Invisible glyphs**: The mysterious "LIGSPACE" character with 2×0 pixel dimensions
-- **Monospace constraints**: Why fonts use phantom spacer glyphs to maintain fixed-width requirements
-- **Rendering complexity**: Real-world text shaping is never as simple as "one character = one glyph"
-
-This perfectly illustrates how even "simple" programming contexts involve deep Unicode complexity.
-
-## 👹 Zalgo Text - When Unicode Goes Wrongew = false
+These articles will help you understand the fundamentals before we explore the more unusual aspects of Unicode below.
 
 ## 🐍 Real-World Unicode Gotchas
 
@@ -161,7 +163,7 @@ The hieroglyphs 𓂸𓂹𓂺 have caused quite a stir in the Unicode community. 
 [Unicode Dicks](https://www.revk.uk/2018/10/unicode-dicks.html) with an entertaining
 [Hacker News discussion](https://news.ycombinator.com/item?id=18346922).
 
-## � Essential Reading for Developers
+## 📚 Essential Reading for Developers
 
 ### The Modern Unicode Developer's Bible
 
@@ -194,7 +196,40 @@ Nikita Prokopov is hands-down the best comprehensive Unicode guide for developer
 This guide perfectly complements the weird examples on this page by explaining the underlying technical foundations
 that make Unicode both powerful and occasionally maddening.
 
-## �👹 Zalgo Text - When Unicode Goes Wrong
+### More Essential Reading
+
+**[Dark Corners of Unicode](https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/)** by eevee - A brilliant deep dive
+into the practical problems you'll encounter with Unicode in the real world:
+
+- **Terminal rendering nightmares**: Why emoji overlap text in VTE and cursor positioning breaks in Konsole
+- **JavaScript's broken string type**: How `"💣".length` returns 2 because JavaScript uses UTF-16 surrogate pairs
+- **The wcwidth() disaster**: Different implementations report different character widths, breaking text everywhere
+- **Sorting is impossible**: German "ß" vs "ss", Turkish dotless "ı", and why normalization isn't a silver bullet
+- **There's no such thing as emoji**: The arbitrary definition of what counts as emoji and why fonts matter
+
+**[I Can Text You A Pile of Poo, But I Can't Write My Name](https://modelviewculture.com/pieces/i-can-text-you-a-pile-of-poo-but-i-cant-write-my-name)**
+by Aditya Mukerjee - A powerful critique of Unicode's cultural and representational problems:
+
+- **Second-class languages**: Bengali (7th most spoken language) missing basic characters for decades
+- **Han Unification controversy**: Forcing Chinese, Japanese, and Korean into shared character sets
+- **Colonial echoes**: How Unicode Consortium's composition reflects historical power imbalances
+- **Emoji prioritization**: 1,000 emoji characters while people can't write their own names correctly
+
+## 💻 Developer Deep Dives
+
+### Monospace Fonts and Unicode Ligatures
+
+**[Shaping Ligatures in Monospace Fonts](https://joshleeb.com/posts/monospace-ligatures.html)** by Josh Leeb explores
+the technical challenges of implementing Unicode ligatures in code editors:
+
+- **The ligature spacer problem**: How `"#{"` becomes 4 glyphs instead of 3 when shaped
+- **Invisible glyphs**: The mysterious "LIGSPACE" character with 2×0 pixel dimensions
+- **Monospace constraints**: Why fonts use phantom spacer glyphs to maintain fixed-width requirements
+- **Rendering complexity**: Real-world text shaping is never as simple as "one character = one glyph"
+
+This perfectly illustrates how even "simple" programming contexts involve deep Unicode complexity.
+
+## 👹 Zalgo Text - When Unicode Goes Wrong
 
 [Zalgo text](https://en.m.wikipedia.org/wiki/Zalgo_text) uses combining diacritics to create chaotic, "corrupted"
 looking text:
