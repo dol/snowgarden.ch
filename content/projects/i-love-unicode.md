@@ -15,6 +15,8 @@ repo_view = false
 _A curated collection of fascinating, funny, weird, and strange Unicode phenomena from my talk at the Webnesday
 St. Gallen Meetup._
 
+**[📊 View the presentation slides](https://docs.google.com/presentation/d/1O9vH5F2YPh4oKDq2FriI_-bKFR4zRxDH_pLrsvIPRc8/edit?usp=sharing)**
+
 Unicode is far more than just "international characters"—it's a deep rabbit hole of linguistic history, cultural
 nuance, and technical complexity that continues to surprise developers daily. This page serves as an extended resource
 for my presentation, featuring real-world Unicode gotchas, security implications, and delightfully bizarre examples.
@@ -328,6 +330,12 @@ things work. It also shows why Unicode awareness matters—CJK users get half th
 Unicode isn't just a technical specification—it's a reflection of human linguistic diversity, complete with all the
 complexity, beauty, and occasional chaos that entails. Every weird edge case has a story, often rooted in centuries
 of cultural and typographic history.
+
+## 🎥 Recommended Unicode Talks
+
+**[Unicode: What Everyone Should Know](https://www.youtube.com/watch?v=gd5uJ7Nlvvo)** - A wonderful deep-dive talk
+exploring Unicode fundamentals, practical challenges, and real-world implications for developers. Perfect complement
+to the resources and examples on this page.
 
 ---
 
