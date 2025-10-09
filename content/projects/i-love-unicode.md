@@ -342,6 +342,15 @@ of cultural and typographic history.
 exploring Unicode fundamentals, practical challenges, and real-world implications for developers. Perfect complement
 to the resources and examples on this page.
 
+**[Unicode Talks Collection](https://www.youtube.com/watch?v=vpSkBV5vydg)** - Additional insights into Unicode
+complexity and practical developer challenges.
+
+**[Unicode Technical Deep-Dive](https://www.youtube.com/watch?v=ut74oHojxqo)** - Further exploration of Unicode
+implementation details and real-world scenarios.
+
+**[Unicode Advanced Topics](https://www.youtube.com/watch?v=uTJoJtNYcaQ)** - Extended discussion of Unicode
+complexities and advanced implementation considerations.
+
 ---
 
 _Found a great Unicode oddity or have a war story to share? Unicode never stops surprising us!_
