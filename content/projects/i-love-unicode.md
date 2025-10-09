@@ -12,10 +12,15 @@ author = "Dominic Lüchinger"
 repo_view = false
 +++
 
-_A curated collection of fascinating, funny, weird, and strange Unicode phenomena from my talk at the Webnesday
-St. Gallen Meetup._
+_A curated collection of fascinating, funny, weird, and strange Unicode phenomena from my talk at the
+[Webnesday St. Gallen Meetup](https://www.meetup.com/webnesday/events/310984075)._
 
 **[📊 View the presentation slides](https://docs.google.com/presentation/d/1O9vH5F2YPh4oKDq2FriI_-bKFR4zRxDH_pLrsvIPRc8/edit?usp=sharing)**
+
+Special thanks to [Pascal Helfenstein](https://www.linkedin.com/in/pascal-helfenstein/) for organizing this
+fantastic event, [Frontify](https://www.frontify.com/) for hosting us, and my fellow speakers Erdem (keyboards) and
+[Christoph Bühler](https://www.linkedin.com/in/christoph-b%C3%BChler-a3a262270/) (hypecycles) for making it such an
+engaging evening!
 
 Unicode is far more than just "international characters"—it's a deep rabbit hole of linguistic history, cultural
 nuance, and technical complexity that continues to surprise developers daily. This page serves as an extended resource
