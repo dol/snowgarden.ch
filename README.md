@@ -23,6 +23,9 @@ cd snowgarden.ch
 # Serve locally with live reload
 zola serve
 
+# Serve locally including draft posts
+zola serve --drafts
+
 # Build for production
 zola build
 ```
