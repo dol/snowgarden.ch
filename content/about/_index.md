@@ -15,6 +15,10 @@ reaction = false
 **Technical Leader | Software Developer | Platform Engineer |
 Sour Candy Enthusiast 🍬**
 
+> *"Be curious, not judgmental."* — Ted Lasso
+
+Curious engineer. Curious human.
+
 I spend my days making complex systems simple and helping teams fall in love with their developer tools.
 Right now I'm deep in the weeds of making infrastructure feel less like infrastructure and more like magic.
 
@@ -37,9 +41,9 @@ team's ambition, I turn technical complexity into competitive advantage.
 
 ### 🔬 **Research & Innovation**
 
-- **Image-based volume mounting in Kubernetes** — Because managing persistent storage shouldn't require a PhD
-- **ML/AI infrastructure patterns** — Making machine learning deployments as reliable as traditional apps
-- **Event-driven architecture evolution** — Designing systems that react, don't just respond
+- **Image-based volume mounting in Kubernetes**: Because managing persistent storage shouldn't require a PhD
+- **ML/AI infrastructure patterns**: Making machine learning deployments as reliable as traditional apps
+- **Event-driven architecture evolution**: Designing systems that react, don't just respond
 
 ### 🎯 **Active Projects**
 
@@ -58,17 +62,17 @@ team's ambition, I turn technical complexity into competitive advantage.
 
 ## My Greatest Hits 🏆
 
-**🔐 Democratized Internet Security** — Led the first-ever Let's Encrypt integration at a hosting provider,
+**🔐 Democratized Internet Security**: Led the first-ever Let's Encrypt integration at a hosting provider,
 making SSL certificates free for millions of websites.
 Sometimes the biggest impact comes from removing barriers.
 
-**💰 The 30% Cost Reduction Without Compromise** — Redesigned cloud infrastructure for applications serving millions of users,
+**💰 The 30% Cost Reduction Without Compromise**: Redesigned cloud infrastructure for applications serving millions of users,
 proving that optimization and reliability aren't mutually exclusive.
 
-**🎭 The Platform Transformation** — Guided enterprises through monolith-to-microservices migrations while keeping the
+**🎭 The Platform Transformation**: Guided enterprises through monolith-to-microservices migrations while keeping the
 lights on and the teams sane.
 
-**👥 Building Teams That Build Better** — Mentored engineers into technical leaders,
+**👥 Building Teams That Build Better**: Mentored engineers into technical leaders,
 proving that investing in people is the highest-ROI platform improvement.
 
 ---
@@ -77,7 +81,7 @@ proving that investing in people is the highest-ROI platform improvement.
 
 ### The Platform-as-Product Philosophy
 
-_Every internal platform needs a product manager — even if that's you._
+*Every internal platform needs a product manager — even if that's you.*
 
 I believe platforms should be built with the same rigor as customer-facing products:
 
@@ -88,23 +92,23 @@ I believe platforms should be built with the same rigor as customer-facing produ
 
 ### My Engineering Principles
 
-**⚖️ Impact Over Effort** — Not all improvements are created equal.
+**⚖️ Impact Over Effort**: Not all improvements are created equal.
 Focus on high-leverage changes.
 
-**🪄 Automate The Annoying** — If it takes more than 30 seconds and you do it more than once a week, automate it.
+**🪄 Automate The Annoying**: If it takes more than 30 seconds and you do it more than once a week, automate it.
 
-**🌈 Extensible > Flexible** — Build for today's problems with tomorrow's expansion in mind.
+**🌈 Extensible > Flexible**: Build for today's problems with tomorrow's expansion in mind.
 YAGNI, but with escape hatches.
 
-**💖 The Boy Scout Rule** — Always leave the codebase better than you found it.
+**💖 The Boy Scout Rule**: Always leave the codebase better than you found it.
 Small improvements compound.
 
-**🧱 Tests Are Your Foundation** — Not documentation.
+**🧱 Tests Are Your Foundation**: Not documentation.
 Tests tell you what the system actually does, not what you hope it does.
 
-**🧰 Technical Debt Is A Tool** — Like any tool, it's about using it thoughtfully and paying it back with interest.
+**🧰 Technical Debt Is A Tool**: Like any tool, it's about using it thoughtfully and paying it back with interest.
 
-**📝 Documentation Is Decision Insurance** — Good docs aren't about what the code does — they're about why
+**📝 Documentation Is Decision Insurance**: Good docs aren't about what the code does — they're about why
 decisions were made.
 The traceability of changes and decisions saves future developers (including yourself) from reinventing the wheel or
 repeating mistakes.
@@ -162,23 +166,23 @@ I'm always up for discussing:
 
 ### Find Me Here
 
-**📧 Email**: [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch) — Best for project discussions
-**💼 LinkedIn**: [Connect with me](https://www.linkedin.com/in/dominicluechinger) — Professional updates
-**🐙 GitHub**: [github.com/dol](https://github.com/dol) — Code and contributions
-**🦋 Bluesky**: [@drdol.bsky.social](https://bsky.app/profile/drdol.bsky.social) — Tech thoughts and random musings
+**📧 Email**: [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch)
+**💼 LinkedIn**: [Connect with me](https://www.linkedin.com/in/dominicluechinger)
+**🐙 GitHub**: [github.com/dol](https://github.com/dol)
+**🦋 Bluesky**: [@drdol.bsky.social](https://bsky.app/profile/drdol.bsky.social)
 
 ---
 
 ## What Others Say 💬
 
-_"Dominic has this rare ability to see the forest and the trees—he can architect a solution and then roll up
-his sleeves to implement it."_
+*"Dominic has this rare ability to see the forest and the trees—he can architect a solution and then roll up
+his sleeves to implement it."*
 
-_"He doesn't just build platforms, he builds the culture around them.
-His teams actually enjoy using the tools he creates."_
+*"He doesn't just build platforms, he builds the culture around them.
+His teams actually enjoy using the tools he creates."*
 
-_"Brought order to our chaos without sacrificing our ability to move fast.
-That's a special skill."_
+*"Brought order to our chaos without sacrificing our ability to move fast.
+That's a special skill."*
 
 ---
 
@@ -199,5 +203,5 @@ Drop me a line at [dominic@snowgarden.ch](mailto:dominic@snowgarden.ch) — I'd 
 
 ---
 
-_P.S. — If you made it this far, you probably care about details as much as I do.
-We should definitely talk._ 😊
+*P.S. — If you made it this far, you probably care about details as much as I do.
+We should definitely talk.* 😊
