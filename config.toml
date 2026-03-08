@@ -1,6 +1,9 @@
 # The URL the site will be built for
 base_url = "https://snowgarden.ch/"
 
+title = "Dominic Lüchinger — Curious engineer. Curious human."
+description = "Curious engineer. Curious human."
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
